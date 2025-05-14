@@ -5,63 +5,80 @@
     xmlns:cards="sap.f.cards"
     xmlns:layout="sap.ui.layout"
     xmlns:unified="sap.ui.unified"
+    xmlns:viz="sap.viz.ui5.controls"
+    xmlns:viz.data="sap.viz.ui5.data"
+    xmlns:viz.feeds="sap.viz.ui5.controls.common.feeds"
     controllerName="app.controller.NextPage">
 
-    <m:Page id="nextPage" title="Event Calendar  Employee Info">
+    <m:Page id="nextPage" title="Event Calendar - Employee Info">
         <m:content>
-            <m:FlexBox id="_IDGenFlexBox1" direction="Row" justifyContent="Start" alignItems="Start" width="100%">
-                
-                <!-- Employee Info Card -->
-                <f:Card id="_IDGenCard" width="400px">
-                    <f:header>
-                    
-                        <cards:Header id="_IDGenHeader" title="{EmployeeData>/EmployeeDetail/Name}" subtitle="{EmployeeData>/EmployeeDetail/Role}" />
-                    </f:header>
-                    <f:content>
-                        <layout:Grid id="_IDGenGrid" width="100%" defaultSpan="XL6 L6 M6 S12">
-                            <!-- First Row: Employee ID & Role -->
-                            <m:VBox id="_IDGenVBox" class="sapUiSmallMargin">
-                                <m:Label id="_IDGenLabel6" text="Employee ID:" />
-                                <m:Text id="_IDGenText17" text="{EmployeeData>/EmployeeDetail/ID}" />
-                            </m:VBox>
-                            <m:VBox id="_IDGenVBox5" class="sapUiSmallMargin">
-                                <m:Label id="_IDGenLabel7" text="Role:" />
-                                <m:Text id="_IDGenText18" text="{EmployeeData>/EmployeeDetail/Role}" />
-                            </m:VBox>
-                            <!-- Second Row: Qualification -->
-                            <m:VBox id="_IDGenVBox7" class="sapUiSmallMargin">
-                                <m:Label id="_IDGenLabel8" text="Qualification:" />
-                                <m:Text id="_IDGenText32" text="{EmployeeData>/EmployeeDetail/Qualification}" wrapping="true" tooltip="{EmployeeData>/EmployeeDetail/Qualification}" />
-                            </m:VBox>
-                            <!-- Third Row: Contact Info -->
-                            <m:VBox id="_IDGenVBox8" class="sapUiSmallMargin">
-                                <m:Label id="_IDGenLabel9" text="Contact:" />
-                                <m:Text id="_IDGenText34" text="{EmployeeData>/EmployeeDetail/Contact}" />
-                            </m:VBox>
-                            <m:VBox id="_IDGenVBox10" class="sapUiSmallMargin">
-                                <m:Label id="_IDGenLabel10" text="Mail ID:" />
-                                <m:Text id="_IDGenText35" text="{EmployeeData>/EmployeeDetail/MailID}" />
-                            </m:VBox>
-                            <!-- Fourth Row: Address -->
-                            <m:VBox id="_IDGenVBox11" class="sapUiSmallMargin">
-                                <m:Label id="_IDGenLabel11" text="Address:" />
-                                <m:Text id="_IDGenText36" text="{EmployeeData>/EmployeeDetail/Address}" wrapping="true" tooltip="{EmployeeData>/EmployeeDetail/Address}" />
-                            </m:VBox>
-                        </layout:Grid>
-                    </f:content>
-                </f:Card>
+            <m:FlexBox id="_IDGenFlexBox1" direction="Row" justifyContent="Start" alignItems="Stretch" width="100%">
+                <!-- Employee Info Card inside VBox -->
+                <m:VBox id="employeeInfoContainer" width="400px">
+                    <f:Card id="_IDGenCard" width="100%">
+                        <f:header>
+                            <cards:Header id="_IDGenHeader" title="{EmployeeData>/EmployeeDetail/Name}" subtitle="{EmployeeData>/EmployeeDetail/Role}" />
+                        </f:header>
+                        <f:content>
+                            <layout:Grid id="_IDGenGrid" width="100%" defaultSpan="XL6 L6 M6 S12">
+                                 <m:VBox id="_IDGenVBoxx">
+                                    <m:Label id="_IDGenLabel55" text="MailID:" />
+                                    <m:Text id="_IDGenText177" text="{EmployeeData>/EmployeeDetail/MailID}" />
+                                </m:VBox>
+                                <m:VBox id="_IDGenVBox">
+                                    <m:Label id="_IDGenLabel5" text="Employee ID:" />
+                                    <m:Text id="_IDGenText17" text="{EmployeeData>/EmployeeDetail/ID}" />
+                                </m:VBox>
+                                <m:VBox id="_IDGenVBox5">
+                                    <m:Label id="_IDGenLabel6" text="Role:" />
+                                    <m:Text id="_IDGenText18" text="{EmployeeData>/EmployeeDetail/Role}" />
+                                </m:VBox>
+                                <m:VBox id="_IDGenVBox7">
+                                    <m:Label id="_IDGenLabel7" text="Qualification:" />
+                                    <m:Text id="_IDGenText32" text="{EmployeeData>/EmployeeDetail/Qualification}" wrapping="true" />
+                                </m:VBox>
+                            </layout:Grid>
+                        </f:content>
+                    </f:Card>
+                     <m:VBox id="_IDGenVBox10" height="20px"/> 
 
-                <m:ToolbarSpacer id="_IDGenToolbarSpacer" width="20px"/> 
+                    <!-- Performance Growth Card placed directly below Employee Info -->
+                    <f:Card id="performanceGraphCard" width="100%">
+                        <f:header>
+                            <cards:Header id="performanceGraphHeader" title="Performance Growth" subtitle="Graph Representation"/>
+                        </f:header>
+                        <f:content>
+                            <viz:VizFrame id="performanceChart" width="100%" height="200px" vizType="line">
+                                <viz:dataset>
+                                    <viz.data:FlattenedDataset id="_IDGenFlattenedDataset" data="{PerformanceData>/Performance}">
+                                        <viz.data:dimensions>
+                                            <viz.data:DimensionDefinition id="_IDGenDimensionDefinition" name="Year" value="{Year}" />
+                                        </viz.data:dimensions>
+                                        <viz.data:measures>
+                                            <viz.data:MeasureDefinition id="_IDGenMeasureDefinition" name="Performance Level" value="{Performance}" />
+                                        </viz.data:measures>
+                                    </viz.data:FlattenedDataset>
+                                </viz:dataset>
+                                <viz:feeds>
+                                    <viz.feeds:FeedItem id="_IDGenFeedItem1" type="Dimension" uid="categoryAxis" values="Year" />
+                                    <viz.feeds:FeedItem id="_IDGenFeedItem2" type="Measure" uid="valueAxis" values="Performance Level" />
+                                </viz:feeds>
+                            </viz:VizFrame>
+                        </f:content>
+                    </f:Card>
+                </m:VBox>
+
+                <m:ToolbarSpacer id="_IDGenToolbarSpacer" width="5px"/> 
 
                 <!-- Calendar Card -->
-                <f:Card id="calendarCard" width="300px">
+                <f:Card id="_IDGenCard1" width="300px">
                     <f:header>
-                        <cards:Header id="calendarHeader" title="Event Calendar" subtitle="Select a Date" />
+                        <cards:Header id="_IDGenHeader1" title="Event Calendar" subtitle="Select a Date" />
                     </f:header>
                     <f:content>
-                        <m:VBox id="_IDGenVBox12" class="sapUiSmallMargin">
-                            <unified:Calendar id="employeeCalendar" />
-                            <m:Label id="_IDGenLabel12" text="Joining Date:" />
+                        <m:VBox id="_IDGenVBox8" width="250px" height="340px">
+                            <unified:Calendar id="employeeCalendar"  />
+                            <m:Label id="_IDGenLabel8" text="Joining Date:" />
                             <m:DatePicker id="joiningDatePicker"
                                 value="{EmployeeData>/EmployeeDetail/Joining_Date}"
                                 displayFormat="yyyy-MM-dd"
@@ -69,6 +86,68 @@
                         </m:VBox>
                     </f:content>
                 </f:Card>
+
+                <m:ToolbarSpacer id="_IDGenToolbarSpacer1" width="5px"/> 
+
+                <!-- Experience vs Hike Graph Card -->
+                <f:Card id="_IDGenCard2" width="300px">
+                    <f:header>
+                        <cards:Header id="_IDGenHeader2" title="Experience Overview" subtitle="Graph Representation" />
+                    </f:header>
+                    <f:content>
+                        <viz:VizFrame id="experienceChart" width="100%" height="300px" vizType="column">
+                            <viz:dataset>
+                                <viz.data:FlattenedDataset id="_IDGenFlattenedDataset1" data="{EmployeeData>/EmployeeDetail/Experience}">
+                                    <viz.data:dimensions>
+                                        <viz.data:DimensionDefinition id="_IDGenDimensionDefinition1" name="Experience" value="{year}" />
+                                    </viz.data:dimensions>
+                                    <viz.data:measures>
+                                        <viz.data:MeasureDefinition id="_IDGenMeasureDefinition1" name="Experience Level" value="{value}" />
+                                    </viz.data:measures>
+                                </viz.data:FlattenedDataset>
+                            </viz:dataset>
+                            <viz:feeds>
+                                <viz.feeds:FeedItem id="_IDGenFeedItem3" type="Dimension" uid="categoryAxis" values="Experience" />
+                                <viz.feeds:FeedItem id="_IDGenFeedItem4" type="Measure" uid="valueAxis" values="Experience Level" />
+                            </viz:feeds>
+                        </viz:VizFrame>
+                    </f:content>
+                </f:Card>
+<m:ToolbarSpacer id="_IDGenToolbarSppacer1" width="5px"/> 
+                <f:Card id="projectListCard" width="250px">
+    <f:header>
+        <cards:Header id="projectListHeader" title="Project Details" subtitle="Key Information"/>
+    </f:header>
+    <f:content>
+        <m:List id="projectList">
+            <m:CustomListItem id="_IDGenCustomListItem">
+                <m:VBox id="_IDGenVBox11">
+                    <m:Label id="_IDGenLabel9" text="Project Name:" />
+                    <m:Text id="_IDGenText35" text="{EmployeeData>/EmployeeDetail/Project_Name}" />
+                </m:VBox>
+            </m:CustomListItem>
+            <m:CustomListItem id="_IDGenCustomListItem1">
+                <m:VBox id="_IDGenVBox12">
+                    <m:Label id="_IDGenLabel10" text="Manager:" />
+                    <m:Text id="_IDGenText36" text="{EmployeeData>/EmployeeDetail/Manager}" />
+                </m:VBox>
+            </m:CustomListItem>
+            <m:CustomListItem id="_IDGenCustomListItem2">
+                <m:VBox id="_IDGenVBox13">
+                    <m:Label id="_IDGenLabel11" text="Client Name:" />
+                    <m:Text id="_IDGenText37" text="{EmployeeData>/EmployeeDetail/Client_Name}" />
+                </m:VBox>
+            </m:CustomListItem>
+            <m:CustomListItem id="_IDGenCustomListItem3">
+                <m:VBox id="_IDGenVBox14">
+                    <m:Label id="_IDGenLabel12" text="Team Lead Name:" />
+                    <m:Text id="_IDGenText38" text="{EmployeeData>/EmployeeDetail/Team_Lead_Name}" />
+                </m:VBox>
+            </m:CustomListItem>
+        </m:List>
+    </f:content>
+</f:Card>
+
             </m:FlexBox>
         </m:content>
     </m:Page>

@@ -22,4 +22,6 @@ entity Employee {
     Salary_Grade      : String;
     About            : String;
     Image_URL           : String;
+    Hike              : Integer;
+
 }
