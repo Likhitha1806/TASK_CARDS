@@ -1,0 +1,49 @@
+<mvc:View controllerName="app.controller.Home"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m">
+
+    <Page id="_IDGenPage" title="Employee Details">
+        <content>
+            <!-- Styled Table -->
+            <Table id="employeeTable" items="{/Employees}" inset="false" class="sapUiResponsiveMargin">
+                <headerToolbar>
+                    <Toolbar id="_IDGenToolbar1">
+                        <Title id="_IDGenTitle7" text="Employee List" class="tableHeaderStyle"/>
+                        <!-- Logo Added to Header -->
+                        
+                        <Image id="_IDGenLogo" src="https://companieslogo.com/img/orig/LTIM.NS_BIG-51ac03d3.png?t=1720244492"
+                               width="120px" height="40px" class="logoStyle"/>
+                    </Toolbar>
+                </headerToolbar>
+                <columns>
+                    <Column id="_IDGenColumn"><Text id="_IDGenText" text="ID"/></Column>
+                    <Column id="_IDGenColumn1"><Text id="_IDGenText1" text="Name"/></Column>
+                    <Column id="_IDGenColumn2"><Text id="_IDGenText2" text="Role"/></Column>
+                    <Column id="_IDGenColumn3"><Text id="_IDGenText3" text="Experience"/></Column>
+                    <Column id="_IDGenColumn4"><Text id="_IDGenText4" text="Work Location"/></Column>
+                    <Column id="_IDGenColumn5"><Text id="_IDGenText5" text="Performance"/></Column>
+                    <Column id="_IDGenColumn6"><Text id="_IDGenText6" text="Qualification"/></Column>
+                    <Column id="_IDGenColumn7"><Text id="_IDGenText7" text="Age"/></Column>
+                    <Column id="_IDGenColumn8"><Text id="_IDGenText8" text="Domain"/></Column>
+                    <Column id="_IDGenColumn9"><Text id="_IDGenText9" text="Action"/></Column>
+                </columns>
+                <items>
+                    <ColumnListItem id="_IDGenColumnListItem" type="Navigation" class="customRowStyle">
+                        <cells>
+                            <Text id="_IDGenText10" text="{ID}" />
+                            <Text id="_IDGenText11" text="{Name}" class="nameStyle"/>
+                            <ObjectStatus id="_IDGenObjectStatus" text="{Role}" icon="sap-icon://employee" class="roleStyle"/>
+                            <Text id="_IDGenText12" text="{Experience}" />
+                            <Text id="_IDGenText13" text="{Work_Location}" />
+                            <ObjectStatus id="_IDGenObjectStatus1" text="{Performance}" state="Success" class="performanceStyle"/>
+                            <Text id="_IDGenText14" text="{Qualification}" />
+                            <Text id="_IDGenText15" text="{Age}" />
+                            <Text id="_IDGenText16" text="{Domain}" />
+                            <Button id="_IDGenButton4" text="View" press="onViewPress" type="Emphasized" />
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+        </content>
+    </Page>
+</mvc:View>

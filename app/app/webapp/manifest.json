@@ -1,0 +1,139 @@
+{
+  "_version": "1.65.0",
+  "sap.app": {
+    "id": "app",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "applicationVersion": {
+      "version": "0.0.1"
+    },
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}",
+    "resources": "resources.json",
+    "sourceTemplate": {
+      "id": "@sap/generator-fiori:basic",
+      "version": "1.17.4",
+      "toolsId": "f814637c-8fbc-4cdd-8943-0e5054478974"
+    },
+    "dataSources": {
+      "mainService": {
+        "uri": "/odata/v4/employee/",
+        "type": "OData",
+        "settings": {
+          "annotations": [],
+          "odataVersion": "4.0"
+        }
+      }
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "",
+      "favIcon": "",
+      "phone": "",
+      "phone@2": "",
+      "tablet": "",
+      "tablet@2": ""
+    },
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+  "sap.ui5": {
+    "flexEnabled": true,
+    "dependencies": {
+      "minUI5Version": "1.134.1",
+      "libs": {
+        "sap.m": {},
+        "sap.ui.core": {},
+        "sap.f": {},
+        "sap.viz": {}  
+      }
+    },
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "app.i18n.i18n"
+        }
+      },
+     
+      "": {
+      
+        "dataSource": "mainService",
+        "preload": true,
+        "settings": {
+          "operationMode": "Server",
+          "synchronizationMode":"None",
+          "autoExpandSelect": true,
+          "earlyRequests": true
+        }
+      }
+    },
+    "resources": {
+      "css": [
+        {
+          "uri": "css/style.css"
+        }
+      ]
+    },
+    "routing": {
+      "config": {
+        "routerClass": "sap.m.routing.Router",
+        "controlAggregation": "pages",
+        "controlId": "app",
+        "transition": "slide",
+        "type": "View",
+        "viewType": "XML",
+        "path": "app.view",
+        "async": true,
+        "viewPath": "app.view"
+      },
+     "routes": [
+        {
+            "pattern": "",
+            "name": "home",
+            "target": "Home"
+        },
+        {
+            "pattern": "EmployeeDetail/{employeeID}",
+            "name": "EmployeeDetail",
+            "target": ["EmployeeDetail"]
+        },
+        {
+          "pattern": "NextPage/{employeeID}",
+          "name": "NextPage",
+          "target": ["NextPage"]
+        }
+    ],
+    "targets": {
+        "Home": {
+            "viewName": "Home",
+            "viewLevel": 1
+        },
+        "EmployeeDetail": {
+            "viewName": "EmployeeDetail",
+            "viewLevel": 2
+        },
+        "NextPage": {
+          "viewName": "NextPage",
+          "viewLevel": 4
+        }
+    }
+
+    },
+    "rootView": {
+      "viewName": "app.view.App",
+      "type": "XML",
+      "id": "App",
+      "async": true
+    }
+  }
+}

@@ -1,0 +1,66 @@
+/* Enter your custom styles here */
+#employeeTable {
+    background-color: #F9F9F9; /* Light background */
+    border-radius: 10px;
+    padding: 10px;
+}
+ColumnListItem {
+    background-color: #EAEAEA; /* Alternating row color */
+    padding: 5px;
+}
+Toolbar {
+    background-color: #0070f3; /* Header bar styling */
+    color: white;
+    padding: 10px;
+}
+/* Stylish header with gradient */
+.customHeader {
+    background: linear-gradient(to right, #0070f3, #3b82f6);
+    color: white;
+    padding: 12px;
+    border-radius: 8px;
+}
+
+/* Table header styling */
+.tableHeaderStyle {
+    font-size: 18px;
+    font-weight: bold;
+    color: #0070f3;
+}
+
+/* Alternating row colors */
+.customRowStyle:nth-child(even) {
+    background-color: #f9f9f9; /* Light gray */
+}
+
+.customRowStyle:nth-child(odd) {
+    background-color: #ffffff; /* White */
+}
+
+/* Name styling */
+.nameStyle {
+    font-weight: bold;
+    color: #3b82f6;
+}
+
+/* Role styling */
+.roleStyle {
+    color: #4CAF50; /* Green */
+    font-weight: bold;
+}
+
+/* Performance rating styling */
+.performanceStyle {
+    color: #FF9800; /* Orange */
+    font-weight: bold;
+}
+
+.logoStyle {
+    margin-left: auto; /* Pushes logo to the right */
+}
+
+
+/* Hover effect */
+.customButton:hover {
+    background-color: #d73366;
+}
