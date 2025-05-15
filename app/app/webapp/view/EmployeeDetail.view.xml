@@ -100,6 +100,7 @@
     <!-- First Column -->
     <m:VBox id="_IDGenVBox8" class="sapUiLargeMarginEnd"> 
         <m:Label id="_IDGenLabel10" text="Employee Name: {EmployeeDetail>/Name}" class="sapUiSmallMarginBottom"/>
+        
         <m:Label id="_IDGenLabel11" text="Employee ID: {EmployeeDetail>/ID}" class="sapUiSmallMarginBottom"/>
         <m:Label id="_IDGenLabel12" text="Work Location: {EmployeeDetail>/Work_Location}" class="sapUiSmallMarginBottom"/>
     </m:VBox>
