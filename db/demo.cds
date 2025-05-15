@@ -23,5 +23,6 @@ entity Employee {
     About            : String;
     Image_URL           : String;
     Hike              : Integer;
+    Employee_of_the_year              :Integer;
 
 }

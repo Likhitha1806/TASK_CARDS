@@ -1,0 +1,48 @@
+{
+    "sap.app": {
+        "id": "com.example.ExperienceHikeLineGraphCard",
+        "type": "card"
+    },
+    "sap.card": {
+        "type": "Analytical",
+        "header": {
+            "title": "Experience vs Hike Analysis",
+            "subTitle": "Employee Growth Over Time",
+            "unitOfMeasurement": "Years"
+        },
+        "content": {
+            "chartType": "Line",
+            "chartProperties": {
+                "legend": { "visible": true },
+                "plotArea": {
+                    "dataLabel": { "visible": true }
+                },
+                "title": { "text": "Experience vs Hike Trends", "alignment": "bottom" },
+                "categoryAxis": { "title": "Employee Name" },
+                "valueAxis": { "title": "Experience (Years)" }
+            },
+            "data": {
+                "json": {
+                    "value": [
+                        { "EmployeeName": "John Doe", "Experience": 5 },
+                        { "EmployeeName": "Jane Smith", "Experience": 7 },
+                        { "EmployeeName": "Michael Brown", "Experience": 10 },
+                        { "EmployeeName": "Emily Johnson", "Experience": 12 }
+                    ]
+                }
+            },
+            "dimensions": [
+                {
+                    "name": "Employee Name",
+                    "value": "{value/EmployeeName}"
+                }
+            ],
+            "measures": [
+                {
+                    "name": "Experience (Years)",
+                    "value": "{value/Experience}"
+                }
+            ]
+        }
+    }
+}

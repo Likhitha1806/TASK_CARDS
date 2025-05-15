@@ -1,3 +1,4 @@
+
 <mvc:View
     xmlns:mvc="sap.ui.core.mvc"
     xmlns:m="sap.m"
@@ -40,113 +41,116 @@
                             </layout:Grid>
                         </f:content>
                     </f:Card>
-                     <m:VBox id="_IDGenVBox10" height="20px"/> 
+                     <m:VBox id="_IDGenVBox10" height="5px"/> 
 
                     <!-- Performance Growth Card placed directly below Employee Info -->
-                    <f:Card id="performanceGraphCard" width="100%">
-                        <f:header>
-                            <cards:Header id="performanceGraphHeader" title="Performance Growth" subtitle="Graph Representation"/>
-                        </f:header>
-                        <f:content>
-                            <viz:VizFrame id="performanceChart" width="100%" height="200px" vizType="line">
-                                <viz:dataset>
-                                    <viz.data:FlattenedDataset id="_IDGenFlattenedDataset" data="{PerformanceData>/Performance}">
-                                        <viz.data:dimensions>
-                                            <viz.data:DimensionDefinition id="_IDGenDimensionDefinition" name="Year" value="{Year}" />
-                                        </viz.data:dimensions>
-                                        <viz.data:measures>
-                                            <viz.data:MeasureDefinition id="_IDGenMeasureDefinition" name="Performance Level" value="{Performance}" />
-                                        </viz.data:measures>
-                                    </viz.data:FlattenedDataset>
-                                </viz:dataset>
-                                <viz:feeds>
-                                    <viz.feeds:FeedItem id="_IDGenFeedItem1" type="Dimension" uid="categoryAxis" values="Year" />
-                                    <viz.feeds:FeedItem id="_IDGenFeedItem2" type="Measure" uid="valueAxis" values="Performance Level" />
-                                </viz:feeds>
-                            </viz:VizFrame>
-                        </f:content>
-                    </f:Card>
+                     <f:Card id="hikeExperiencePiehartCard" width="100%">
+                    <f:header>
+                        <cards:Header id="_IDGenHeader2" title="Hike vs Experience" subtitle="Pie Chart Representation"/>
+                    </f:header>
+                    <f:content>
+                        <viz:VizFrame id="hikeExperiencePieChart" width="100%" height="280px" vizType="pie">
+                            <viz:dataset>
+                                <viz.data:FlattenedDataset id="pieChartDataset" data="{EmployeeData>/HikeExperience}">
+                                    <viz.data:dimensions>
+                                        <viz.data:DimensionDefinition id="pieChartDimension" name="Category" value="{Category}"/>
+                                    </viz.data:dimensions>
+                                    <viz.data:measures>
+                                        <viz.data:MeasureDefinition id="pieChartMeasure" name="Value" value="{Value}"/>
+                                    </viz.data:measures>
+                                </viz.data:FlattenedDataset>
+                            </viz:dataset>
+                            <viz:feeds>
+                                <viz.feeds:FeedItem id="pieChartFeedDim" type="Dimension" uid="color" values="Category"/>
+                                <viz.feeds:FeedItem id="pieChartFeedMeasure" type="Measure" uid="size" values="Value"/>
+                            </viz:feeds>
+                        </viz:VizFrame>
+                    </f:content>
+                </f:Card>
                 </m:VBox>
 
                 <m:ToolbarSpacer id="_IDGenToolbarSpacer" width="5px"/> 
 
                 <!-- Calendar Card -->
-                <f:Card id="_IDGenCard1" width="300px">
-                    <f:header>
-                        <cards:Header id="_IDGenHeader1" title="Event Calendar" subtitle="Select a Date" />
-                    </f:header>
-                    <f:content>
-                        <m:VBox id="_IDGenVBox8" width="250px" height="340px">
-                            <unified:Calendar id="employeeCalendar"  />
-                            <m:Label id="_IDGenLabel8" text="Joining Date:" />
-                            <m:DatePicker id="joiningDatePicker"
-                                value="{EmployeeData>/EmployeeDetail/Joining_Date}"
-                                displayFormat="yyyy-MM-dd"
-                                change=".onDateChange"/>
-                        </m:VBox>
-                    </f:content>
-                </f:Card>
+                <m:VBox id="_IDGenVBox11">
+    <!-- Event Calendar Card -->
+    <f:Card id="eventCalendarCard" width="300px">
+        <f:header>
+            <cards:Header id="_IDGenHeader1" title="Event Calendar" subtitle="Select a Date" />
+        </f:header>
+        <f:content>
+            <m:VBox id="_IDGenVBox12" width="250px" height="340px">
+                <unified:Calendar id="employeeCalendar" />
+                <m:Label id="_IDGenLabel8" text="Joining Date:" />
+                <m:DatePicker id="joiningDatePicker"
+                    value="{EmployeeData>/EmployeeDetail/Joining_Date}"
+                    displayFormat="yyyy-MM-dd"
+                    change=".onDateChange"/>
+            </m:VBox>
+        </f:content>
+    </f:Card>
 
-                <m:ToolbarSpacer id="_IDGenToolbarSpacer1" width="5px"/> 
+    <m:VBox id="_IDGenVBox13" height="10px"/> 
 
-                <!-- Experience vs Hike Graph Card -->
-                <f:Card id="_IDGenCard2" width="300px">
-                    <f:header>
-                        <cards:Header id="_IDGenHeader2" title="Experience Overview" subtitle="Graph Representation" />
-                    </f:header>
-                    <f:content>
-                        <viz:VizFrame id="experienceChart" width="100%" height="300px" vizType="column">
-                            <viz:dataset>
-                                <viz.data:FlattenedDataset id="_IDGenFlattenedDataset1" data="{EmployeeData>/EmployeeDetail/Experience}">
-                                    <viz.data:dimensions>
-                                        <viz.data:DimensionDefinition id="_IDGenDimensionDefinition1" name="Experience" value="{year}" />
-                                    </viz.data:dimensions>
-                                    <viz.data:measures>
-                                        <viz.data:MeasureDefinition id="_IDGenMeasureDefinition1" name="Experience Level" value="{value}" />
-                                    </viz.data:measures>
-                                </viz.data:FlattenedDataset>
-                            </viz:dataset>
-                            <viz:feeds>
-                                <viz.feeds:FeedItem id="_IDGenFeedItem3" type="Dimension" uid="categoryAxis" values="Experience" />
-                                <viz.feeds:FeedItem id="_IDGenFeedItem4" type="Measure" uid="valueAxis" values="Experience Level" />
-                            </viz:feeds>
-                        </viz:VizFrame>
-                    </f:content>
-                </f:Card>
-<m:ToolbarSpacer id="_IDGenToolbarSppacer1" width="5px"/> 
-                <f:Card id="projectListCard" width="250px">
+    <!-- Employee of the Year Card (Placed directly below the Event Calendar) -->
+ <f:Card id="employeeOfTheYearCard" width="300px" height="90px">
     <f:header>
-        <cards:Header id="projectListHeader" title="Project Details" subtitle="Key Information"/>
+        <cards:Header id="_IDGenHeader3" title="Employee of the Year"  />
     </f:header>
     <f:content>
-        <m:List id="projectList">
-            <m:CustomListItem id="_IDGenCustomListItem">
-                <m:VBox id="_IDGenVBox11">
-                    <m:Label id="_IDGenLabel9" text="Project Name:" />
-                    <m:Text id="_IDGenText35" text="{EmployeeData>/EmployeeDetail/Project_Name}" />
-                </m:VBox>
-            </m:CustomListItem>
-            <m:CustomListItem id="_IDGenCustomListItem1">
-                <m:VBox id="_IDGenVBox12">
-                    <m:Label id="_IDGenLabel10" text="Manager:" />
-                    <m:Text id="_IDGenText36" text="{EmployeeData>/EmployeeDetail/Manager}" />
-                </m:VBox>
-            </m:CustomListItem>
-            <m:CustomListItem id="_IDGenCustomListItem2">
-                <m:VBox id="_IDGenVBox13">
-                    <m:Label id="_IDGenLabel11" text="Client Name:" />
-                    <m:Text id="_IDGenText37" text="{EmployeeData>/EmployeeDetail/Client_Name}" />
-                </m:VBox>
-            </m:CustomListItem>
-            <m:CustomListItem id="_IDGenCustomListItem3">
-                <m:VBox id="_IDGenVBox14">
-                    <m:Label id="_IDGenLabel12" text="Team Lead Name:" />
-                    <m:Text id="_IDGenText38" text="{EmployeeData>/EmployeeDetail/Team_Lead_Name}" />
-                </m:VBox>
-            </m:CustomListItem>
+        <m:Text id="employeeYearText" text="{EmployeeData>/EmployeeDetail/Employee_of_the_year} 🏆" 
+            wrapping="true"  textAlign="Center" class="largeText"/>
+    </f:content>
+</f:Card>
+
+
+</m:VBox>
+
+
+                <m:ToolbarSpacer id="_IDGenToolbarSpacer1" width="8px"/> 
+
+               <f:Card id="hikeExperiencePieChartCard" width="300px">
+    <f:header>
+        <cards:Header id="hikeExperiencePieChartHeader" title="Hike vs Experience" subtitle="Pie Chart Representation"/>
+    </f:header>
+    <f:content>
+       <viz:VizFrame id="hikeExperienceColumnChart" width="100%" height="300px" vizType="column">
+    <viz:dataset>
+        <viz.data:FlattenedDataset id="columnChartDataset" data="{EmployeeData>/HikeExperience}">
+            <viz.data:dimensions>
+                <viz.data:DimensionDefinition id="columnChartDimension" name="Category" value="{Category}"/>
+            </viz.data:dimensions>
+            <viz.data:measures>
+                <viz.data:MeasureDefinition id="columnChartMeasure" name="Value" value="{Value}"/>
+            </viz.data:measures>
+        </viz.data:FlattenedDataset>
+    </viz:dataset>
+    <viz:feeds>
+        <viz.feeds:FeedItem id="columnChartFeedDim" type="Dimension" uid="categoryAxis" values="Category"/>
+        <viz.feeds:FeedItem id="columnChartFeedMeasure" type="Measure" uid="valueAxis" values="Value"/>
+    </viz:feeds>
+</viz:VizFrame>
+
+
+    </f:content>
+</f:Card>
+<m:ToolbarSpacer id="_IDGenToolbarSpacer3" width="8px"/> 
+
+<!-- Project Info List Card -->
+<f:Card id="projectInfoCard" width="300px">
+    <f:header>
+        <cards:Header id="projectInfoHeader" title="Project Information" subtitle="Key Details"/>
+    </f:header>
+    <f:content>
+        <m:List id="projectInfoList">
+            <m:StandardListItem id="_IDGenStandardListItem1" title="Project Name" description="{EmployeeData>/EmployeeDetail/Project_Name}" />
+            <m:StandardListItem id="_IDGenStandardListItem2" title="Manager" description="{EmployeeData>/EmployeeDetail/Manager}" />
+            <m:StandardListItem id="_IDGenStandardListItem3" title="Client Name" description="{EmployeeData>/EmployeeDetail/Client_Name}" />
+            <m:StandardListItem id="_IDGenStandardListItem4" title="Team Lead Name" description="{EmployeeData>/EmployeeDetail/Team_Lead_Name}" />
         </m:List>
     </f:content>
 </f:Card>
+
 
             </m:FlexBox>
         </m:content>

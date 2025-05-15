@@ -1,0 +1,27 @@
+{
+    "sap.card": {
+        "type": "Analytical",
+        "header": {
+            "title": "Performance Over Years",
+            "subTitle": "Line Chart",
+            "status": {
+                "text": "Data Overview"
+            }
+        },
+        "content": {
+            "chartType": "line",
+            "data": {
+                "json": {
+                    "Performance": [
+                        { "Year": "2021", "Performance": 60 },
+                        { "Year": "2022", "Performance": 75 },
+                        { "Year": "2023", "Performance": 85 }
+                    ]
+                },
+                "path": "/Performance"
+            },
+            "dimensions": [{ "label": "Year", "value": "{Year}" }],
+            "measures": [{ "label": "Performance (%)", "value": "{Performance}" }]
+        }
+    }
+}

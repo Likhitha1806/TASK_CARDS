@@ -64,3 +64,10 @@ Toolbar {
 .customButton:hover {
     background-color: #d73366;
 }
+.largeText {
+    font-size: 20px; /* Adjust size */
+    font-weight: bold;
+    text-align: center; /* Ensures perfect centering */
+    display: block; /* Helps maintain positioning */
+}
+

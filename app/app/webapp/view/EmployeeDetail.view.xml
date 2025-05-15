@@ -96,26 +96,23 @@
             <ObjectPageSubSection id="employmentSectionSS2" title="Employee Details" titleUppercase="false">
                 <blocks>
                     
-                     <m:HBox id="_IDGenHBox56" justifyContent="SpaceBetween">
-                    <!-- First Column -->
-                    <m:VBox id="_IDGenVBox133663">
-                       
-                        <m:Label id="_IDGenLabel144" text="Employee Name:  {EmployeeDetail>/Name}" class="sapUiSmallMarginBottom"/>
-                        <m:Label id="_IDGenLabel442" text="Employee ID: {EmployeeDetail>/ID}"  class="sapUiSmallMarginBottom"/>
-                        <m:Label id="_IDGenLabel4422" text="Work Location: {EmployeeDetail>/Work_Location}" class="sapUiSmallMarginBottom"/>
-                        <m:Label id="_IDGenLabel44232" text="Salary Grade: {EmployeeDetail>/Salary_Grade}" />
+                    <m:HBox id="_IDGenHBox6" justifyContent="Center" class="sapUiSmallMarginTop">
+    <!-- First Column -->
+    <m:VBox id="_IDGenVBox8" class="sapUiLargeMarginEnd"> 
+        <m:Label id="_IDGenLabel10" text="Employee Name: {EmployeeDetail>/Name}" class="sapUiSmallMarginBottom"/>
+        <m:Label id="_IDGenLabel11" text="Employee ID: {EmployeeDetail>/ID}" class="sapUiSmallMarginBottom"/>
+        <m:Label id="_IDGenLabel12" text="Work Location: {EmployeeDetail>/Work_Location}" class="sapUiSmallMarginBottom"/>
+    </m:VBox>
 
-                      
-                    </m:VBox>
+    <!-- Second Column with more spacing -->
+    <m:VBox id="_IDGenVBox14" class="sapUiLargeMarginBegin"> 
+        <m:Label id="_IDGenLabel13" text="Salary Grade: {EmployeeDetail>/Salary_Grade}" class="sapUiSmallMarginBottom"/>
+        <m:Label id="_IDGenLabel14" text="Role: {EmployeeDetail>/Role}" class="sapUiSmallMarginBottom"/>
+        <m:Label id="_IDGenLabel15" text="Experience: {EmployeeDetail>/Experience}" class="sapUiSmallMarginBottom"/>
+    </m:VBox>
+</m:HBox>
 
-                    <!-- Second Column -->
-                    <m:VBox id="_IDGenVBox612">
-                        <m:Label id="_IDGenLabel13" text="Role: {EmployeeDetail>/Role}"  class="sapUiSmallMarginBottom"/>  
-                        <m:Label id="_IDGenLabel114" text="Experience: {EmployeeDetail>/Experience}" class="sapUiSmallMarginBottom"/>
-                        <m:Label id="_IDGenLabel1114" text="Performance: {EmployeeDetail>/Performance}"/>
-                       
-                    </m:VBox>
-                </m:HBox>
+
                 </blocks>
             </ObjectPageSubSection>
         </subSections>
